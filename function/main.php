@@ -45,20 +45,56 @@ class Router
   }
 }
 
-// $urls = [];
-// function route($url, $method, $callback)
-// {
-//     global $urls;
-//     if ($url == '/') {
-//         $url = '';
-//     }
-//     $urls[strtoupper($method)][$url] = $callback;
-//     $urls['routes'][] = $url;
-//     $urls['routes'] = array_unique($urls['routes']);
-// }
-
 function urlpath($path)
 {
   require_once 'config/static.php';
   return BASEURL . $path;
+}
+
+function setFlashMessage( $type, $message )
+{
+  if ( !isset( $_SESSION[ 'user' ] ) ) {
+      $_SESSION[ 'guest_' . $type ] = $message;
+  } else {
+      $_SESSION[ $type . '_' . $_SESSION[ 'user' ][ 'id' ] ] = $message;
+  }
+}
+
+function displayFlashMessages( $type )
+{
+  if (!isset($_SESSION['user'])) {
+    $messageKey = 'guest_' . $type;
+    if (isset($_SESSION[$messageKey])) {
+        echo '<div class="alert alert-' . $type . ' fixed inset-x-0 top-0 flex items-center justify-center pt-10 z-50 transition-opacity duration-200">';
+        echo '<div class="px-4 py-3 rounded shadow-md bg-' . ($type === 'success' ? 'green-100' : 'red-100') . ' border border-' . ($type === 'success' ? 'green-200' : 'red-200') . '">';
+        echo '<div class="flex items-center">';
+        echo '<div class="flex-1">';
+        echo $_SESSION[$messageKey];
+        echo '</div>';
+        echo '<button type="button" class="ml-4 text-' . ($type === 'success' ? 'green-700' : 'red-700') . ' hover:text-' . ($type === 'success' ? 'green-900' : 'red-900') . '" data-dismiss-target="alert" aria-label="Close">';
+        echo '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>';
+        echo '</button>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        unset($_SESSION[$messageKey]);
+    }
+  } else {
+    $messageKey = $type . '_' . $_SESSION['user']['id'];
+    if (isset($_SESSION[$messageKey])) {
+        echo '<div class="alert alert-' . $type . ' fixed inset-x-0 top-0 flex items-center justify-center pt-10 z-50 transition-opacity duration-200">';
+        echo '<div class="px-4 py-3 rounded shadow-md bg-' . ($type === 'success' ? 'green-100' : 'red-100') . ' border border-' . ($type === 'success' ? 'green-200' : 'red-200') . '">';
+        echo '<div class="flex items-center">';
+        echo '<div class="flex-1">';
+        echo $_SESSION[$messageKey];
+        echo '</div>';
+        echo '<button type="button" class="ml-4 text-' . ($type === 'success' ? 'green-700' : 'red-700') . ' hover:text-' . ($type === 'success' ? 'green-900' : 'red-900') . '" data-dismiss-target="alert" aria-label="Close">';
+        echo '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>';
+        echo '</button>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        unset($_SESSION[$messageKey]);
+    }
+  }
 }

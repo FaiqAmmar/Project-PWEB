@@ -1,0 +1,9 @@
+.slider-button {
+  background-color:#D9D9D9;
+  transition: width 0.3s ease;
+}
+
+.slider-button.active {
+  background-color:#171473;
+  width: 32px;
+}
