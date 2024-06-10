@@ -4,7 +4,7 @@
 
 <form action="<?= urlpath('add-elearning'); ?>" method="POST"
 class="relative flex flex-col w-[70%] mx-auto my-4 p-4 shadow-[0_0px_10px_0px_rgba(0,0,0,0.2)] rounded-xl">
-  <span class="flex text-[#333333] font-bold text-3xl py-4 justify-center">Tambah Lowongan E-Learning</span>
+  <span class="flex text-[#333333] font-bold text-3xl py-4 justify-center">Tambah E-Learning</span>
   <div class="flex flex-col gap-1 py-2">
     <label class="text-base" for="judul">Nama E-Learning:</label>
     <input name="judul" type="text" class="border border-[#333333] rounded-lg w-full py-1 px-2
