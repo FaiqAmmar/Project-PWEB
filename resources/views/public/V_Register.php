@@ -90,6 +90,14 @@
       </div>
       <div class="text-base flex flex-col text-left">
         <div>
+          Alamat:
+        </div>
+        <input class="rounded-full border-2 border-[#171473] text-sm
+        focus:outline-none focus:ring-0 focus:border-[#171473] px-3" 
+        name="alamat" type="text">
+      </div>
+      <div class="text-base flex flex-col text-left">
+        <div>
           Email:
         </div>
         <input class="rounded-full border-2 border-[#171473] text-sm

@@ -31,12 +31,16 @@
       <hr class="border-b-[2px] border-[#171473] rounded-lg">
       <p class="pl-1.5 pr-2 text-sm text-justify flex flex-wrap"><?php echo $data['gaji']; ?></p>
     </div>
-    <div class="flex px-2 justify-end">
+    <?php if ($userRoleData['role'] === 'Seeker') : ?>
+    <form class="flex px-2 justify-end">
+      <input value="<?= $Loker['id_seeker']; ?>" type="hidden">
+      <input value="<?= $Loker['id_loker']; ?>" type="hidden">
       <a href="" class="flex w-auto text-white py-2 px-4 rounded-lg bg-[#171473]
       hover:bg-[#0f0f5a] hover:scale-105 transition-all duration-200">
         Lamar Sekarang
       </a>
-    </div>
+    </form>
+    <?php endif; ?>
   </div>
   <div class="h-fit flex flex-col w-[27%] p-4 pt-6 shadow-[0_0px_10px_0px_rgba(0,0,0,0.2)] rounded-xl gap-2">
     <span span class="flex text-[#333333] font-bold text-xl justify-center">Profil Perusahaan</span>
@@ -47,13 +51,7 @@
     </div>
     <div class="flex flex-row justify-center gap-1">
       <label class="font-bold text-sm text-justify flex flex-wrap">Alamat :</label>
-      <p class="text-sm text-justify flex flex-wrap">Sudirman</p>
-    </div>
-    <div class="flex justify-center pt-2">
-    <a href="" class="flex w-fit text-[#101828] py-2 px-4 rounded-lg bg-[#F9FAFB] border-2 border-[#171473]
-    hover:bg-[#E5E7EB] hover:scale-105 transition-all duration-200">
-      Lihat Profil
-    </a>
+      <p class="text-sm text-justify flex flex-wrap"><?php echo $Mitra['alamat']; ?></p>
     </div>
   </div>
 </div>

@@ -23,9 +23,13 @@ Router::url('edit-loker','get', 'C_Loker::ToEditLoker');
 Router::url('update-loker', 'post', 'C_Loker::updateLoker');
 Router::url('delete-loker', 'get', 'C_Loker::deleteLoker');
 Router::url('detail-loker','get', 'C_Loker::DetailLoker');
+Router::url('apply-loker', 'post', 'C_Loker::ApplyLoker');
 
 //ELearning Page
 Router::url('elearning','get', 'C_Elearning::ToELearning');
 Router::url('add-elearning','get', 'C_Elearning::ToAddELearning');
+Router::url('add-elearning','post', 'C_Elearning::AddELearning');
 Router::url('edit-elearning','get', 'C_Elearning::ToEditELearning');
+Router::url('update-elearning', 'post', 'C_Elearning::updateELearning');
+Router::url('delete-elearning', 'get', 'C_Elearning::deleteELearning');
 Router::url('detail-elearning','get', 'C_Elearning::DetailELearning');

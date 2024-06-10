@@ -69,14 +69,15 @@ class M_Credential
         global $conn;
     
         $nama = $data['nama_mitra'];
+        $alamat = $data['alamat'];
         $email = $data['email'];
         $password = $data['password'];
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT); 
     
         // First, insert into credential table
-        $sql_credential = "INSERT INTO credentials (email, password, role) VALUES (?, ?, 'Mitra')";
+        $sql_credential = "INSERT INTO credentials (alamat, email, password, role) VALUES (?, ?, ?, 'Mitra')";
         $stmt_credential = $conn->prepare($sql_credential);
-        $stmt_credential->bind_param('ss', $email, $hashedPassword);
+        $stmt_credential->bind_param('sss', $alamat, $email, $hashedPassword);
         $stmt_credential->execute();
     
         // Check if insertion into credential table was successful

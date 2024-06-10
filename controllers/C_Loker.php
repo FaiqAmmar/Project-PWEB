@@ -162,4 +162,23 @@ class C_Loker {
       'Mitra' => $Mitra
     ]);
   }
+
+  static function ApplyLoker() {
+    $id = $_GET['id'];
+    $userId = $_SESSION['user']['id'];
+    $lokerId = M_Loker::getLokerById($id);
+    $userRoleData = M_User::getFromRoles($userId);
+    $Loker = M_Loker::ApplyLoker([
+      'id_seeker' => $userRoleData['id'],
+      'id_loker' => $lokerId['id'],
+    ]);
+
+    if ($Loker) {
+      setFlashMessage('success', 'Berhasil Aplikasi Loker');
+      header('Location: ' . BASEURL . 'loker');
+    } else {
+      setFlashMessage('error', 'Gagal Aplikasi Loker');
+      header('Location: ' . BASEURL . 'loker');
+    }
+  }
 }

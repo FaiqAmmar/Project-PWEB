@@ -56,7 +56,8 @@ class C_Public {
     $post = array_map('htmlspecialchars', $_POST);
 
     $user = M_Credential::MitraRegister([
-        'nama_mitra' => $post['nama_mitra'], 
+        'nama_mitra' => $post['nama_mitra'],
+        'alamat' => $post['alamat'], 
         'email' => $post['email'],
         'password' => $post['password'],
     ]);

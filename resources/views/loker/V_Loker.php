@@ -1,7 +1,6 @@
 <?php $title = 'Lowongan Kerja'; ?>
 
-<?php displayFlashMessages('success'); ?>
-<?php displayFlashMessages('error'); ?>
+
 
 <?php include_once 'resources/views/master-layout/loker.php'; ?>
 
@@ -34,13 +33,13 @@
       </div>
     </div>
   </div>
-  <table class="table ">
+  <table class="table">
     <thead class="text-left font-bolf text-white bg-[#1F1D59]">
       <tr>
         <?php if ($userRoleData['role'] === 'Mitra') : ?>
         <th class="border border-[#DDDDDD] px-3 py-2 w-[90%]">Nama Lowongan</th>
         <th class="border border-[#DDDDDD] px-3 py-2 w-[10%]">Aksi</th>
-        <?php elseif ($userRoleData['role'] === 'Seeker') : ?>
+        <?php elseif ($userRoleData['role'] !== 'Mitra') : ?>
         <th class="border border-[#DDDDDD] px-3 py-2 w-[85%]">Nama Lowongan</th>
         <th class="border border-[#DDDDDD] px-3 py-2 w-[15%]">Aksi</th>
         <?php endif; ?>
@@ -83,6 +82,6 @@
 </div>
 
 <script src="resources/js/dismiss-alert.js"></script>
-<script src="resources/js/search-form-loker.js"></script>
+<script src="resources/js/search-form.js"></script>
 
 <?php include_once 'resources/views/master-layout/loker.php'; ?>

@@ -85,4 +85,14 @@ class M_Loker
       $stmt->execute();
       return $stmt->affected_rows;
   }
+
+  static function ApplyLoker($data=[]) {
+    $idSeeker = $data['id_seeker'];
+    $idLoker = $data['id_loker'];
+    global $conn;
+    $stmt = $conn->prepare("INSERT INTO apply_loker (id_seeker, id_loker) VALUES (?, ?)");
+    $stmt->bind_param("ii", $idSeeker, $idLoker);
+    $stmt->execute();
+    return $conn->insert_id;
+  }
 }
