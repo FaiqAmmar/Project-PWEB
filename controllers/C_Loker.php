@@ -156,10 +156,15 @@ class C_Loker {
 
       $data = M_Loker::getLokerById($id);
       $Mitra = M_Loker::getMitraByLoker($data['id_mitra']);
+      $userId = $_SESSION['user']['id'];
+      $lokerId = M_Loker::getLokerById($id);
+      $userRoleData = M_User::getFromRoles($userId);
     }
     view('loker/V_DetailLoker', [
       'data' => $data,
-      'Mitra' => $Mitra
+      'Mitra' => $Mitra,
+      'userRoleData' => $userRoleData,
+      'lokerId' => $lokerId
     ]);
   }
 
