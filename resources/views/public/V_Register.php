@@ -22,6 +22,7 @@
     </div>
     <form id="roleUser" action="<?= urlpath('register-user'); ?>" method="POST"
     class="hidden text-base my-auto flex flex-col text-left transition-opacity duration-500 opacity-0">
+      <input type="hidden" name="role" value="Seeker">
       <div class="flex flex-row gap-5">
         <div class="text-base flex flex-col text-left w-[60%]">
           <div>
@@ -80,6 +81,7 @@
     </form>
     <form id="roleMitra" action="<?= urlpath('register-mitra'); ?>" method="POST"
     class="hidden text-base my-auto flex flex-col text-left transition-opacity duration-500 opacity-0">
+    <input type="hidden" name="role" value="Mitra">
       <div class="text-base flex flex-col text-left">
         <div>
           Nama Mitra:

@@ -6,7 +6,7 @@
 
 <div class="relative w-full flex flex-row py-4 px-16 justify-between">
   <div class="ml-4 flex items-center">   
-    <img class="h-10 rounded-full" src="assets/images/logo1.png" alt="Logo">
+    <img class="h-10 rounded-full" src="assets/images/Logo1.png" alt="Logo">
   </div>
   <div class="flex flex-row gap-8 font-medium	text-base text-[#101828] items-center">
     <a class="hover:underline hover:scale-105 transition-all duration-200" href="<?= urlpath('logout') ?>">

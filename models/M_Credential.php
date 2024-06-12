@@ -29,14 +29,15 @@ class M_Credential
         $nama = $data['nama'];
         $email = $data['email'];
         $password = $data['password'];
+        $role = $data['role'];
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $tanggal_lahir = $data['tanggal_lahir']; 
         $lulusan = $data['lulusan']; 
     
         // First, insert into credential table
-        $sql_credential = "INSERT INTO credentials (email, password, role) VALUES (?, ?, 'User')";
+        $sql_credential = "INSERT INTO credentials (email, password, role) VALUES (?, ?, ?)";
         $stmt_credential = $conn->prepare($sql_credential);
-        $stmt_credential->bind_param('ss', $email, $hashedPassword);
+        $stmt_credential->bind_param('sss', $email, $hashedPassword, $role);
         $stmt_credential->execute();
     
         // Check if insertion into credential table was successful
@@ -72,12 +73,13 @@ class M_Credential
         $alamat = $data['alamat'];
         $email = $data['email'];
         $password = $data['password'];
+        $role = $data['role'];
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT); 
     
         // First, insert into credential table
-        $sql_credential = "INSERT INTO credentials (alamat, email, password, role) VALUES (?, ?, ?, 'Mitra')";
+        $sql_credential = "INSERT INTO credentials (email, password, role) VALUES (?, ?, ?)";
         $stmt_credential = $conn->prepare($sql_credential);
-        $stmt_credential->bind_param('sss', $alamat, $email, $hashedPassword);
+        $stmt_credential->bind_param('sss', $email, $hashedPassword, $role);
         $stmt_credential->execute();
     
         // Check if insertion into credential table was successful
@@ -89,9 +91,9 @@ class M_Credential
         $id_credential = $stmt_credential->insert_id;
     
         // Second, insert into mitra_profiles table
-        $sql_profile = "INSERT INTO mitra_profiles (nama_mitra, id_credential) VALUES (?, ?)";
+        $sql_profile = "INSERT INTO mitra_profiles (nama_mitra, alamat, id_credential) VALUES (?, ?, ?)";
         $stmt_profile = $conn->prepare($sql_profile);
-        $stmt_profile->bind_param('si', $nama, $id_credential);
+        $stmt_profile->bind_param('ssi', $nama, $alamat, $id_credential);
         $stmt_profile->execute();
     
         // Check if insertion into mitra_profiles table was successful

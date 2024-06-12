@@ -31,7 +31,7 @@
       <hr class="border-b-[2px] border-[#171473] rounded-lg">
       <p class="pl-1.5 pr-2 text-sm text-justify flex flex-wrap"><?php echo $data['gaji']; ?></p>
     </div>
-    <?php if ($userRoleData['role'] === 'Seeker') : ?>
+    <?php if ($userRoleData['role'] === 'Mitra') : ?>
     <form class="flex px-2 justify-end">
       <input value="<?= $Loker['id_seeker']; ?>" type="hidden">
       <input value="<?= $Loker['id_loker']; ?>" type="hidden">

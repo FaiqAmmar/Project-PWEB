@@ -39,12 +39,14 @@ class C_Public {
         'nama' => $post['nama'], 
         'email' => $post['email'],
         'password' => $post['password'],
+        'role' => $post['role'],
         'tanggal_lahir' => $post['tanggal_lahir'],
         'lulusan' => $post['lulusan'],
     ]);
 
     if ($user) {
         header('Location: '.BASEURL.'login');
+        setFlashMessage('success', 'Register Berhasil');
     }
     else {
         setFlashMessage('error', 'Register Gagal');
@@ -60,13 +62,16 @@ class C_Public {
         'alamat' => $post['alamat'], 
         'email' => $post['email'],
         'password' => $post['password'],
+        'role' => $post['role'],
     ]);
 
     if ($user) {
         header('Location: '.BASEURL.'login');
+        setFlashMessage('success', 'Register Berhasil');
     }
     else {
-        header('Location: '.BASEURL.'register?failed=true');
+        setFlashMessage('error', 'Register Gagal');
+        header('Location: '.BASEURL.'register');
     }
   }
 

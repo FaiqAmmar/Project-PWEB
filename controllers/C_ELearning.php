@@ -18,7 +18,7 @@ class C_ELearning {
       }
       $ELearning = M_ELearning::getAllELearning();
 
-      view('elearning/V_elearning', [
+      view('elearning/V_ELearning', [
         'userRoleData' => $userRoleData
         ,'ELearning' => $ELearning
       ]);

@@ -1,6 +1,6 @@
 <div class="w-full flex flex-row py-4 pl-8 pr-16 justify-between">
   <div class="ml-16 flex flex-row items-center gap-10">   
-    <img class="h-10 rounded-full" src="<?= urlpath('assets/images/logo1.png') ?>" alt="Logo">
+    <img class="h-10 rounded-full" src="<?= urlpath('assets/images/Logo1.png') ?>" alt="Logo">
   </div>
   <div  class="flex flex-row gap-4 font-medium	text-base items-center">
     <a href="<?= urlpath('login') ?>" class="text-[#101828] 

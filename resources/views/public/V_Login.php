@@ -1,4 +1,5 @@
 <?php displayFlashMessages('error'); ?>
+<?php displayFlashMessages('success'); ?>
 
 <div class="relative w-auto h-auto flex flex-row gap-[10%] my-20 mx-28 p-16 rounded-lg shadow-[0_0px_10px_0px_rgba(0,0,0,0.2)]">
   <form action="<?= urlpath('login'); ?>" method="POST"
